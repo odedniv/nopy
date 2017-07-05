@@ -48,7 +48,7 @@ const getPythonScriptsDir = (packageDir, env = process.env) => {
   .catch(error => {
     if (error.code !== "ENOENT")
       throw error;
-    let child = child_process.spawn("python", ["-m", "site", "--user-site"], { env });
+    let child = child_process.spawn("python3", ["-m", "site", "--user-site"], { env });
     return new Promise((resolve, reject) => {
       let stdout = "";
       let stderr = "";
@@ -175,7 +175,7 @@ const spawnPython = (args, options = {}) => {
   options = Object.assign({
     interop: "status",
     package: undefined,
-    execPath: "python",
+    execPath: "python3",
     spawn: {},
     throwNonZeroStatus: true,
   }, options);
